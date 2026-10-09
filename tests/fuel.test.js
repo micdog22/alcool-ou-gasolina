@@ -14,7 +14,7 @@ test('lê números no formato brasileiro', () => {
   assert.equal(parseNumber('1.200,5', 1, { thousands: true }), 12005);
   assert.equal(parseNumber('12.5', 1, { thousands: true }), 125);
   assert.equal(parseNumber('', 2), null);
-  for (const bad of ['5,7999', '-1', '−3', 'abc', '1,2,3', ',']) assert.ok(Number.isNaN(parseNumber(bad, 3)), bad);
+  for (const bad of ['5,7999', '-1', '\u22123', 'abc', '1,2,3', ',']) assert.ok(Number.isNaN(parseNumber(bad, 3)), bad);
 });
 
 test('formatação', () => {
@@ -89,8 +89,8 @@ test('custo por km de cada combustível', () => {
 });
 
 test('economia por tanque cheio e por mês', () => {
-  assert.equal(compare({ tank: '50' }).tankSavingsCents, 315); // 50 × (4,053 − 3,99)
-  assert.equal(compare({ ethanolPrice: '4,29', tank: '50' }).tankSavingsCents, 1693); // 50 × (4,29/0,7 − 5,79)
+  assert.equal(compare({ tank: '50' }).tankSavingsCents, 315); // 50 × (4,053 - 3,99)
+  assert.equal(compare({ ethanolPrice: '4,29', tank: '50' }).tankSavingsCents, 1693); // 50 × (4,29/0,7 - 5,79)
   assert.equal(compare({ ethanolPrice: '3,50', gasolinePrice: '5,00', tank: '50' }).tankSavingsCents, 0);
 
   const month = compare({ ethanolKml: '8', gasolineKml: '11,5', kmPerMonth: '1.000' });

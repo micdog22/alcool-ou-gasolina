@@ -1,4 +1,4 @@
-# Álcool ou Gasolina? — descubra qual compensa abastecer e quanto custa a viagem (HTML + JS)
+# Álcool ou Gasolina? Descubra qual compensa abastecer e quanto custa a viagem (HTML + JS)
 
 Calculadora para quem tem carro flex: compare o preço do etanol e da gasolina pela regra dos 70% ou, melhor ainda, pelo consumo real do seu carro. Veja também o custo por km de cada combustível, quanto você economiza por tanque e por mês, e quanto vai gastar numa viagem, já dividido entre os passageiros.
 
@@ -50,4 +50,4 @@ Os resultados são estimativas para ajudar na decisão: preços e consumo variam
 Issues e pull requests são bem-vindos.
 
 ## Licença
-MIT — veja [LICENSE](LICENSE).
+MIT. Veja [LICENSE](LICENSE).

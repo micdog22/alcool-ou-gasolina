@@ -33,7 +33,7 @@ export function formatNumber(value, decimals) {
   const fixed = Math.abs(value).toFixed(decimals);
   const [int, frac] = fixed.split('.');
   const grouped = int.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-  return `${value < 0 ? '−' : ''}${grouped}${frac ? `,${frac}` : ''}`;
+  return `${value < 0 ? '-' : ''}${grouped}${frac ? `,${frac}` : ''}`;
 }
 
 export function formatBRL(cents) {
