@@ -1,0 +1,65 @@
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface-2:#f0f2f5;--text:#1b1f24;--muted:#5b6470;--border:#dde1e6;
+  --accent:#166534;--accent-text:#fff;--accent-soft:#e7f6ec;--ok:#1f7a3a;--warn:#8a5a00;--danger:#b42318;
+  --ethanol:#166534;--ethanol-soft:#e7f6ec;--gasoline:#8a5a00;--gasoline-soft:#fdf3dc;
+  --radius:12px;--radius-sm:8px;--shadow:0 1px 2px rgb(0 0 0/.05),0 8px 24px rgb(0 0 0/.06);
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1115;--surface:#171a21;--surface-2:#1f232c;--text:#e8eaef;--muted:#9aa3af;--border:#2a2f3a;
+  --accent:#4ade80;--accent-text:#0f1115;--accent-soft:#14301f;--ok:#4ade80;--warn:#fbbf24;--danger:#f87171;
+  --ethanol:#4ade80;--ethanol-soft:#14301f;--gasoline:#fbbf24;--gasoline-soft:#2f2611;--shadow:none}}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.55}
+.site-header,main,.site-footer{max-width:960px;margin-inline:auto;padding-inline:16px}
+.site-header{padding-block:32px 8px}
+h1{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 4px;letter-spacing:-.01em}
+h2{font-size:1.2rem;margin:0 0 14px}
+h3{font-size:1rem;margin:18px 0 6px}
+.lead{color:var(--muted);margin:0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-block:16px}
+label{display:block;font-weight:600;margin-bottom:6px}
+input,select,textarea,button{font:inherit;color:inherit}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface)}
+:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 50%,transparent);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-sm);border:1px solid transparent;background:var(--accent);color:var(--accent-text);font-weight:600;cursor:pointer}
+.btn.secondary{background:transparent;color:var(--text);border-color:var(--border)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.muted{color:var(--muted)}
+.site-footer{padding-block:24px 40px;color:var(--muted);font-size:.9rem}
+a{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+.hint{color:var(--muted);font-size:.9rem;margin:10px 0 0}
+.link{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer;font-size:inherit}
+.bloco{border:1px dashed var(--border);border-radius:var(--radius-sm);padding:12px 16px 16px;margin:18px 0}
+.bloco legend{font-weight:700;padding:0 6px}
+.bloco .hint{margin:0 0 12px}
+.regra{margin:0 0 18px}
+.regra output{font-weight:800;color:var(--accent)}
+input[type=range]{padding:0;border:0;background:none;accent-color:var(--accent);height:32px}
+.regua{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;margin-top:-4px}
+.check{display:flex;align-items:center;gap:8px;font-weight:500;margin:10px 0 0;cursor:pointer}
+.check input{width:auto;margin:0;accent-color:var(--accent)}
+.atalhos{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+
+.resultado{border-top:4px solid var(--accent)}
+.resultado>p{margin:0 0 8px}
+.veredito{display:inline-block;font-size:clamp(1.4rem,4.5vw,1.9rem);font-weight:800;letter-spacing:-.01em;padding:6px 14px;border-radius:var(--radius-sm);margin:0 0 10px!important}
+.veredito.ethanol{color:var(--ethanol);background:var(--ethanol-soft)}
+.veredito.gasoline{color:var(--gasoline);background:var(--gasoline-soft)}
+.veredito.tie{color:var(--text);background:var(--surface-2)}
+.mensagem{font-weight:600}
+.numeros{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;margin:14px 0 4px;padding-top:12px;border-top:1px dashed var(--border)}
+.numeros dt{color:var(--muted)}
+.numeros dd{margin:0;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.numeros .sub{display:block;font-weight:400;color:var(--muted);font-size:.82rem}
+.resultado-viagem{margin-top:16px}
+.erros{color:var(--danger);margin:0;padding-left:20px}
+
+@media (max-width:560px){
+  .numeros{grid-template-columns:1fr}
+  .numeros dd{text-align:left;margin-bottom:6px}
+}

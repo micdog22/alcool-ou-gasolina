@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Álcool ou Gasolina? — descubra qual compensa abastecer e quanto custa a viagem</title>
+  <meta name="description" content="Compare etanol e gasolina pela regra dos 70% ou pelo consumo real do seu carro, veja o custo por km, a economia por tanque e o custo da viagem.">
+  <meta name="theme-color" content="#166534">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛽</text></svg>">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Álcool ou Gasolina?</h1>
+    <p class="lead">Descubra qual combustível compensa no seu carro flex e quanto vai custar a viagem.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="titulo-comparar">
+      <h2 id="titulo-comparar">Qual compensa abastecer?</h2>
+      <div class="grid">
+        <div>
+          <label for="preco-etanol">Preço do etanol (R$ por litro)</label>
+          <input id="preco-etanol" data-key="ethanolPrice" inputmode="decimal" placeholder="ex.: 3,99" autocomplete="off">
+        </div>
+        <div>
+          <label for="preco-gasolina">Preço da gasolina (R$ por litro)</label>
+          <input id="preco-gasolina" data-key="gasolinePrice" inputmode="decimal" placeholder="ex.: 5,79" autocomplete="off">
+        </div>
+      </div>
+
+      <fieldset class="bloco">
+        <legend>Consumo do seu carro (opcional)</legend>
+        <p class="hint">Se você sabe quantos km o carro faz com um litro de cada combustível, a conta usa o seu carro em vez da regra geral.</p>
+        <div class="grid">
+          <div>
+            <label for="consumo-etanol">Com etanol (km/l)</label>
+            <input id="consumo-etanol" data-key="ethanolKml" inputmode="decimal" placeholder="ex.: 8,2" autocomplete="off">
+          </div>
+          <div>
+            <label for="consumo-gasolina">Com gasolina (km/l)</label>
+            <input id="consumo-gasolina" data-key="gasolineKml" inputmode="decimal" placeholder="ex.: 11,8" autocomplete="off">
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="regra">
+        <label for="regra">Regra usada quando você não informa os dois consumos: <output id="regra-valor" for="regra">70%</output></label>
+        <input type="range" id="regra" data-key="rule" min="65" max="75" step="0.5" value="70">
+        <div class="regua" aria-hidden="true"><span>65%</span><span>70%</span><span>75%</span></div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <label for="tanque">Capacidade do tanque (litros)</label>
+          <input id="tanque" data-key="tank" inputmode="decimal" placeholder="ex.: 50" autocomplete="off">
+        </div>
+        <div>
+          <label for="km-mes">Quanto você roda por mês (km)</label>
+          <input id="km-mes" data-key="kmPerMonth" inputmode="numeric" placeholder="ex.: 1.000" autocomplete="off">
+        </div>
+      </div>
+    </section>
+
+    <section class="card resultado" id="resultado" aria-live="polite" aria-label="Resultado da comparação"></section>
+
+    <section class="card" aria-labelledby="titulo-viagem">
+      <h2 id="titulo-viagem">Quanto custa a viagem?</h2>
+      <div class="grid">
+        <div>
+          <label for="distancia">Distância (km)</label>
+          <input id="distancia" data-key="tripDistance" inputmode="decimal" placeholder="ex.: 432" autocomplete="off">
+          <label class="check"><input type="checkbox" id="ida-volta" data-key="tripRoundTrip"> Ida e volta (dobra a distância)</label>
+        </div>
+        <div>
+          <label for="consumo-viagem">Consumo do carro na estrada (km/l)</label>
+          <input id="consumo-viagem" data-key="tripKml" inputmode="decimal" placeholder="ex.: 12" autocomplete="off">
+        </div>
+        <div>
+          <label for="preco-viagem">Preço do combustível (R$ por litro)</label>
+          <input id="preco-viagem" data-key="tripPrice" inputmode="decimal" placeholder="ex.: 5,79" autocomplete="off">
+          <p class="atalhos">Copiar o preço do <button type="button" class="link" data-copiar="ethanolPrice">etanol</button> ou da <button type="button" class="link" data-copiar="gasolinePrice">gasolina</button> informado acima</p>
+        </div>
+        <div>
+          <label for="pedagios">Pedágios, somando todas as praças (R$)</label>
+          <input id="pedagios" data-key="tripTolls" inputmode="decimal" placeholder="0,00" autocomplete="off">
+        </div>
+        <div>
+          <label for="pessoas">Pessoas para dividir</label>
+          <input id="pessoas" data-key="tripPeople" inputmode="numeric" autocomplete="off">
+        </div>
+      </div>
+      <div class="resultado-viagem" id="resultado-viagem" aria-live="polite"></div>
+    </section>
+
+    <section class="card" aria-labelledby="titulo-regra">
+      <h2 id="titulo-regra">Por que 70%?</h2>
+      <p>O etanol tem menos energia por litro que a gasolina, então o carro flex roda menos quilômetros com ele. Em média, o rendimento com etanol fica perto de 70% do rendimento com gasolina. Daí vem a regra prática: se o litro do etanol custar menos de 70% do litro da gasolina, ele compensa.</p>
+      <p>É só uma aproximação. Cada motor é diferente: em alguns carros a relação fica mais perto de 65%, em outros de 75%, e o jeito de dirigir também pesa. Medir o consumo do seu carro dá uma resposta bem mais confiável.</p>
+      <h3>Como medir o consumo do seu carro</h3>
+      <ol>
+        <li>Encha o tanque até o primeiro desarme da bomba e zere o hodômetro parcial.</li>
+        <li>Rode normalmente, como no dia a dia, de preferência até usar boa parte do tanque.</li>
+        <li>Encha de novo até o primeiro desarme e anote quantos litros entraram.</li>
+        <li>Divida os km do hodômetro parcial pelos litros: esse é o seu km/l. Repita com o outro combustível.</li>
+      </ol>
+      <p class="muted">Os resultados são estimativas para ajudar na decisão; preços e consumo variam.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Tudo roda no seu navegador. Código aberto no <a href="https://github.com/micdog22/alcool-ou-gasolina">GitHub</a> · Licença MIT</p>
+  </footer>
+</body>
+</html>

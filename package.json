@@ -1,0 +1,11 @@
+{
+  "name": "alcool-ou-gasolina",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Descubra se compensa abastecer com álcool (etanol) ou gasolina e calcule quanto custa a viagem.",
+  "type": "module",
+  "scripts": { "test": "node --test" },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/micdog22/alcool-ou-gasolina.git" },
+  "homepage": "https://micdog22.github.io/alcool-ou-gasolina/"
+}
